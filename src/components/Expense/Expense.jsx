@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import "./Expense.css";
+import "./Expense.css"
 import Modal from 'react-modal';
 import ExpenseForm from '../Expenseform/Expenseform';
 

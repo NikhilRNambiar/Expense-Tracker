@@ -38,7 +38,7 @@ const RecentTransactions = ({ transactions ,onDelete,onEdit}) => {
   return (
     <div >
       <h2 style={{color:'white',fontSize:'28px',fontStyle:'italic',fontWeight:'700'}}>Recent Transactions</h2>
-      <div className='transaction-container'>
+      <div className='transaction-container'style={{backgroundColor:'white'}}>
       <div className="transaction-list">
         {currentTransactions.map((transaction) => (
           <div>
