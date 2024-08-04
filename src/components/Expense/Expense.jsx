@@ -36,11 +36,11 @@ function Expense({expenses,addExpense,totalExpenses}) {
         <div className='wallet'>
             <h3 className='text-expense'>Expenses:<span>₹{totalExpenses}</span></h3>
             <button className='expense-button' onClick={toggleModal}>+Add Expense</button>
-            <Modal isOpen={modalIsOpen} onRequestClose={toggleModal} contentLabel="Add Expense" style={customStyles}>
+            {/* <Modal isOpen={modalIsOpen} onRequestClose={toggleModal} contentLabel="Add Expense" style={customStyles}>
                 <h2>Add Expenses</h2>
                 <ExpenseForm onSave={handleSave} onCancel={toggleModal}  />
                 
-            </Modal>
+            </Modal> */}
         </div>
     </div>
   )
