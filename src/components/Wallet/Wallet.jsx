@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import "./Wallet.css";
 import Modal from 'react-modal';
-import BalanceForm from './Balanceform';
+import BalanceForm from '../Balanceform/Balanceform';
 
 const customStyles = {
   content: {
@@ -30,6 +30,7 @@ function Wallet({balance,onAddBalance}) {
       onAddBalance(amount);
     }
   }
+  console.log("wallet")
   return (
     <div>
         <div className='wallet'>

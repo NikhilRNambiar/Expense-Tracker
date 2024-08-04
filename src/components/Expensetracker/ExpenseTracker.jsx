@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import Wallet from './Wallet';
-import Expense from './Expense';
-import Piechart from './Piechart';
+import Wallet from "../Wallet/Wallet";
+import Expense from '../Expense/Expense';
+import Piechart from '../Piechart/Piechart';
 import './ExpenseTracker.css';
-import RecentTransactions from './RecentTransactions';
+import RecentTransactions from '../RecentTransactions/RecentTransactions';
 import Modal from 'react-modal';
-import Expenseform from "./Expenseform";
-import TopExpenses from './TopExpenses';
+import Expenseform from "../Expenseform/Expenseform";
+import TopExpenses from '../TopExpenses/TopExpenses';
 
 Modal.setAppElement('#root');
 

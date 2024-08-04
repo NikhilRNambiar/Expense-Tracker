@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import "./Wallet.css";
+import "./Expense.css";
 import Modal from 'react-modal';
-import ExpenseForm from './Expenseform';
+import ExpenseForm from '../Expenseform/Expenseform';
 
 
 const customStyles = {
