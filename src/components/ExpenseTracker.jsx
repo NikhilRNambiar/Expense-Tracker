@@ -8,6 +8,9 @@ import Modal from 'react-modal';
 import Expenseform from "./Expenseform";
 import TopExpenses from './TopExpenses';
 
+Modal.setAppElement('#root');
+
+
 const customStyles = {
   content: {
     width: '538px',
