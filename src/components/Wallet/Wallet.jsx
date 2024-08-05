@@ -35,7 +35,6 @@ function Wallet({balance,onAddBalance}) {
   console.log("wallet")
   return (
     <div>
-      <h1>wallet</h1>
         <div className='wallet'>
             <h3 className='text'>Wallet Balance:<span>₹{balance}</span></h3>
             <button className='wallet-button' onClick={toggleModal}>+Add Income</button>
