@@ -3,6 +3,8 @@ import "./Wallet.css";
 import Modal from 'react-modal';
 import BalanceForm from '../Balanceform/Balanceform';
 
+Modal.setAppElement('#root');
+
 const customStyles = {
   content: {
     width:'538px',
