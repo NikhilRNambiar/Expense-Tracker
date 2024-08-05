@@ -10,6 +10,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    opacity: 1;
+    
+    visibility: visible;
+    
+    z-index: 1;
     
 }
 .text{
