@@ -11,24 +11,24 @@ import TopExpenses from '../TopExpenses/TopExpenses';
 Modal.setAppElement('#root');
 
 
-// const customStyles = {
-//   content: {
-//     width: '538px',
-//     top: '50%',
-//     left: '50%',
-//     right: 'auto',
-//     bottom: 'auto',
-//     marginRight: '-50%',
-//     transform: 'translate(-50%, -50%)',
-//     backgroundColor: 'linear-gradient(90deg, #B5DC52 0%, #89E148 85%, #EFEFEF 85%)',
-//     padding: '20px',
-//     borderRadius: '10px',
-//     border: 'none',
-//   },
-//   overlay: {
-//     backgroundColor: 'rgba(0, 0, 0, 0.5)',
-//   },
-// };
+const customStyles = {
+  content: {
+    width: '538px',
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+    backgroundColor: 'linear-gradient(90deg, #B5DC52 0%, #89E148 85%, #EFEFEF 85%)',
+    padding: '20px',
+    borderRadius: '10px',
+    border: 'none',
+  },
+  overlay: {
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  },
+};
 
 function ExpenseTracker() {
   const [balance, setBalance] = useState(() => {
@@ -133,10 +133,10 @@ function ExpenseTracker() {
       <RecentTransactions transactions={expenses}  onDelete={handleDelete} onEdit={toggleModal} />
       <TopExpenses data={aggregateExpensesByCategory()}/>
       </div>
-      {/* <Modal isOpen={modalIsOpen} onRequestClose={() => toggleModal(null)} contentLabel="Edit Expense" style={customStyles}>
+      <Modal isOpen={modalIsOpen} onRequestClose={() => toggleModal(null)} contentLabel="Edit Expense" style={customStyles}>
         <h2>{currentExpense ? 'Edit Expense' : 'Add Expense'}</h2>
         <Expenseform onSave={currentExpense ? (expense) => handleEdit(currentExpense.date + currentExpense.title, expense) : addExpense} onCancel={() => toggleModal(null)} initialData={currentExpense} />
-      </Modal> */}
+      </Modal>
       
     </div>
   );
