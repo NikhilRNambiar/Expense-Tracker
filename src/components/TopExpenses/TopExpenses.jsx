@@ -1,5 +1,5 @@
 import React from 'react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis,ResponsiveContainer } from 'recharts';
 
 const TopExpenses = ({ data }) => {
     const showSortedData = () => {
@@ -17,10 +17,10 @@ const TopExpenses = ({ data }) => {
             margin={{ top: 20, right: 30, left: 40, bottom: 5 }}
             barSize={30}
           >
-            {/* <CartesianGrid strokeDasharray="3 3" /> */}
+            
             <XAxis type="number" hide/>
             <YAxis dataKey="name"  type="category" />
-            {/* <Tooltip /> */}
+            
             <Bar dataKey="value" fill="#8784D2" />
           </BarChart>
         </ResponsiveContainer>
