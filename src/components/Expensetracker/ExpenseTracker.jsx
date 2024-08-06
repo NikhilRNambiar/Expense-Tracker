@@ -125,7 +125,7 @@ function ExpenseTracker() {
     <div style={{display:'flex',flexDirection:'column'}}>
       <h2 style={{ color: "white",fontSize:'32px',fontWeight:'700',marginBottom:'3px' }}>Expense Tracker</h2>
       
-      <div className='expense'>
+      <div className='expenseTracker'>
         
         <Wallet balance={balance} onAddBalance={addBalance} />
         <Expense expenses={expenses} addExpense={addExpense} totalExpenses={totalExpenses} />
