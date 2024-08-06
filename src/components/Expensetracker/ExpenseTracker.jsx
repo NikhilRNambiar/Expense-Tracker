@@ -124,9 +124,10 @@ function ExpenseTracker() {
   return (
     <div>
       <h2 style={{ color: "white",fontSize:'32px',fontWeight:'700',marginBottom:'3px' }}>Expense Tracker</h2>
+      <Wallet balance={balance} onAddBalance={addBalance} />
       <div className='expense'>
         
-        <Wallet balance={balance} onAddBalance={addBalance} />
+        
         <Expense expenses={expenses} addExpense={addExpense} totalExpenses={totalExpenses} />
         <Piechart data={aggregateExpensesByCategory()} />
       </div>
