@@ -30,7 +30,7 @@
 }
 
 .expensebutton{
-    background: linear-gradient(90deg, #FF9595 0%, #FF4747 80%, #FF3838 100%)!important;
+    background: linear-gradient(90deg, #FF9595 0%, #FF4747 80%, #FF3838 100%);
     width: 167.65px;
     height: 38px;
     opacity: 0px;
