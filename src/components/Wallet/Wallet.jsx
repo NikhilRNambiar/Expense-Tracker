@@ -37,7 +37,7 @@ function Wallet({balance,onAddBalance}) {
     <div>
         <div className='wallet'>
             <h3 className='textWallet'>Wallet Balance:<span>₹{balance}</span></h3>
-            <button className='wallet-button' onClick={toggleModal}>+Add Income</button>
+            <button className='walletbutton' onClick={toggleModal}>+Add Income</button>
             <Modal isOpen={modalIsOpen} onRequestClose={toggleModal} contentLabel="Add Balance" style={customStyles}>
               <h2 style={{fontFamily:'ubuntu',fontSize:'30px',fontWeight:'700'}}>Add Balance</h2>
                 <BalanceForm onSave={handleSave} onCancel={toggleModal} />

@@ -27,14 +27,14 @@
 
 
 }
-.text span{
+.textWallet span{
     color:greenyellow;
 
 }
 
 
 
-.wallet-button{
+.walletbutton{
     background: linear-gradient(90deg, #B5DC52 0%, #89E148 100%);
     width: 167.65px;
     height: 38px;
