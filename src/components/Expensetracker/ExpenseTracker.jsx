@@ -10,10 +10,10 @@ import TopExpenses from '../TopExpenses/TopExpenses';
 
 Modal.setAppElement('#root');
 
-
 const customStyles = {
   content: {
-    width: '538px',
+    width: '90%',
+    maxWidth: '538px',
     top: '50%',
     left: '50%',
     right: 'auto',
@@ -66,20 +66,26 @@ function ExpenseTracker() {
       alert('Insufficient balance');
       return;
     }
-    setExpenses([...expenses,expense]);
-    console.log(expenses);
+    const newExpenses = [...expenses, expense];
+    setExpenses(newExpenses);
     setTotalExpenses(totalExpenses + expense.price);
     setBalance(balance - expense.price);
+    localStorage.setItem('expenses', JSON.stringify(newExpenses));
+    localStorage.setItem('totalExpenses', JSON.stringify(totalExpenses + expense.price));
+    localStorage.setItem('balance', JSON.stringify(balance - expense.price));
   };
 
   const addBalance = (amount) => {
     setBalance(balance + amount);
+    localStorage.setItem('balance', JSON.stringify(balance + amount));
   };
 
   const handleDelete = (transactionKey) => {
     setExpenses(prevExpenses => {
       const updatedExpenses = prevExpenses.filter(exp => (exp.date + exp.title) !== transactionKey);
       setTotalExpenses(updatedExpenses.reduce((total, exp) => total + exp.price, 0));
+      localStorage.setItem('expenses', JSON.stringify(updatedExpenses));
+      localStorage.setItem('totalExpenses', JSON.stringify(updatedExpenses.reduce((total, exp) => total + exp.price, 0)));
       return updatedExpenses;
     });
   };
@@ -90,6 +96,8 @@ function ExpenseTracker() {
         (exp.date + exp.title) === transactionKey ? updatedTransaction : exp
       );
       setTotalExpenses(updatedExpenses.reduce((total, exp) => total + exp.price, 0));
+      localStorage.setItem('expenses', JSON.stringify(updatedExpenses));
+      localStorage.setItem('totalExpenses', JSON.stringify(updatedExpenses.reduce((total, exp) => total + exp.price, 0)));
       return updatedExpenses;
     });
     setModalIsOpen(false);
@@ -99,8 +107,6 @@ function ExpenseTracker() {
     setCurrentExpense(expense);
     setModalIsOpen(!modalIsOpen);
   };
-
-
 
   const aggregateExpensesByCategory = () => {
     const categories = expenses.reduce((acc, expense) => {
@@ -118,28 +124,25 @@ function ExpenseTracker() {
     }));
   };
 
- 
-  // console.log(aggregatedData);
-
   return (
-    <div style={{display:'flex',flexDirection:'column'}}>
-      <h2 style={{ color: "white",fontSize:'32px',fontWeight:'700',marginBottom:'3px' }}>Expense Tracker</h2>
+    <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <h2 style={{ color: "white", fontSize: '32px', fontWeight: '700', marginBottom: '3px' }}>Expense Tracker</h2>
       
       <div className='expenseTracker'>
-        
         <Wallet balance={balance} onAddBalance={addBalance} />
         <Expense expenses={expenses} addExpense={addExpense} totalExpenses={totalExpenses} />
         <Piechart data={aggregateExpensesByCategory()} />
       </div>
-      <div style={{display:'flex'}}>
-      <RecentTransactions transactions={expenses}  onDelete={handleDelete} onEdit={toggleModal} />
-      <TopExpenses data={aggregateExpensesByCategory()}/>
+      
+      <div className='recentTransactionsAndTopExpenses'>
+        <RecentTransactions transactions={expenses} onDelete={handleDelete} onEdit={toggleModal} />
+        <TopExpenses data={aggregateExpensesByCategory()} />
       </div>
+      
       <Modal isOpen={modalIsOpen} onRequestClose={() => toggleModal(null)} contentLabel="Edit Expense" style={customStyles}>
         <h2>{currentExpense ? 'Edit Expense' : 'Add Expense'}</h2>
         <Expenseform onSave={currentExpense ? (expense) => handleEdit(currentExpense.date + currentExpense.title, expense) : addExpense} onCancel={() => toggleModal(null)} initialData={currentExpense} />
       </Modal>
-      
     </div>
   );
 }
